@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'folio.apps.FolioConfig',
+    'bootstrap3',
 ]
 
 MIDDLEWARE = [

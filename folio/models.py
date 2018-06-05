@@ -20,7 +20,7 @@ Initializing Skill Model
 """
 class Skill(models.Model):
     skill_name = models.CharField(max_length=255, null=True, blank=True)
-
+    skill_description = models.TextField(null=True)
 """
 Initializing Personal_Information Model
 

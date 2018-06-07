@@ -5,19 +5,19 @@
 <!--[if IE 7]> <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]> <html class="no-js lt-ie9"> <![endif]-->
 {% block content %}
-  <!--[if gt IE 8]><!-->
+
   <html class="no-js">
-    <!--<![endif]-->
+
     <head>
       <meta charset="utf-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
       {% if title %}
-        <title>{{Personal_Information.name}}</title>
+        <title>{{personal_Information.name}}</title>
       {% else %}
         <title>FAITH THUITA</title>
       {% endif %}
       <meta name="description" content="">
-      <!-- Volton Template http://www.templatemo.com/tm-441-volton -->
+
       <meta name="viewport" content="width=device-width, initial-scale=1">
       {% block styles %}
         {% bootstrap_css %}
@@ -37,7 +37,6 @@
 
     </head>
     <body>
-      <!--[if lt IE 7]> <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p> <![endif]-->
 
       <div class="responsive-header visible-xs visible-sm">
         <div class="container">
@@ -45,38 +44,18 @@
             <div class="col-md-12">
               <div class="top-section">
                 <div class="profile-image">
-                  <img src="img/9.jpg" alt="faith">
+                  {% if information.my_photo %}
+                    <img src="{{ information.my_photo.url}}" alt="faith">
+                  {% endif %}
                 </div>
                 <div class="profile-content">
-                  <h3 class="profile-title">{{Personal_Information.name}}</h3>
-                  <p class="profile-description">{{Skill.skill_name}}</p>
+                  <h3 class="profile-title">{{ information.name}}</h3>
+                  <p class="profile-description">{{skills.skill_name}}</p>
                 </div>
               </div>
             </div>
           </div>
-          <a href="#" class="toggle-menu">
-            <i class="fa fa-bars"></i>
-          </a>
-          <div class="main-navigation responsive-menu">
-            <ul class="navigation">
-              <li>
-                <a href="#top">
-                  <i class="fa fa-home"></i>Home</a>
-              </li>
-              <li>
-                <a href="#about">
-                  <i class="fa fa-user"></i>About Me</a>
-              </li>
-              <li>
-                <a href="#projects">
-                  <i class="fa fa-newspaper-o"></i>My Projects</a>
-              </li>
-              <li>
-                <a href="#contact">
-                  <i class="fa fa-envelope"></i>Contact Me</a>
-              </li>
-            </ul>
-          </div>
+
         </div>
       </div>
 
@@ -84,10 +63,10 @@
       <div class="sidebar-menu hidden-xs hidden-sm">
         <div class="top-section">
           <div class="profile-image">
-            <img src="{{Personal_Information.my_photo.url}}" alt="faith">
+            <img src="{{ information.my_photo.url }}" alt="faith">
           </div>
-          <h3 class="profile-title">{{ Personal_Information.name }}</h3>
-          <p class="profile-description">{{ Skill.skill_name }}</p>
+          <h3 class="profile-title">{{ information.name }}</h3>
+          <p class="profile-description">{{ skill.skill_name }}</p>
         </div>
         <!-- top-section -->
         <div class="main-navigation">
@@ -100,6 +79,11 @@
               <a href="#about">
                 <i class="fa fa-pencil"></i>About Me</a>
             </li>
+
+            <li>
+              <a href="#skills">
+                <i class="fa fa-pencil"></i>My Skills</a>
+            </li>
             <li>
               <a href="#projects">
                 <i class="fa fa-paperclip"></i>My Projects</a>
@@ -110,50 +94,14 @@
             </li>
           </ul>
         </div>
-        <!-- .main-navigation -->
-        <div class="social-icons">
-          <ul>
-            <li>
-              <a href="#">
-                <i class="fa fa-facebook"></i>
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <i class="fa fa-twitter"></i>
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <i class="fa fa-linkedin"></i>
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <i class="fa fa-google-plus"></i>
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <i class="fa fa-youtube"></i>
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <i class="fa fa-rss"></i>
-              </a>
-            </li>
-          </ul>
-        </div>
-        <!-- .social-icons -->
       </div>
       <!-- .sidebar-menu -->
 
       <div class="banner-bg" id="top">
         <div class="banner-overlay"></div>
         <div class="welcome-text">
-          <h2>My Personal Portfolio</h2>
-          <h5>{{ Skill.skill_name }}</h5>
+          <h2>{{ information.name }}</h2>
+          <h5>Full Stack Developer</h5>
         </div>
       </div>
 
@@ -163,16 +111,31 @@
 
           <div class="content-wrapper">
 
+            <!--SKILLS-->
+            <div class="page-section" id="skills">
+              <div class="row">
+                <div class="col-md-12">
+                  <h4 class="widget-title">My Skills</h4>
+                  <ul>
+                    <li>Bootstrap</li>
+                    <li>Flask Web Framework</li>
+                    <li>Django Web Framework</li>
+                    <li>HTML5 and CSS3
+                    </li>
+                    <li>PostgreSQL</li>
+
+                  </ul>
+                </div>
+              </div>
+              <!-- #about -->
+            </div>
+
             <!-- ABOUT -->
             <div class="page-section" id="about">
               <div class="row">
                 <div class="col-md-12">
                   <h4 class="widget-title">Learn About Me</h4>
-                  <div class="about-image">
-                    <img src="{{Personal_Information.my_photo.url}}" alt="about me">
-                  </div>
-                  <p>{{ Skill.skill_description }}</p>
-                  <hr>
+
                 </div>
               </div>
               <!-- #about -->
@@ -184,7 +147,7 @@
                 <div class="row">
                   <div class="col-md-12">
                     <h4 class="widget-title">MY PROJECTS</h4>
-                    <p>{{ Project.project_description }}</p>
+                    <p>{{ project.project_description }}</p>
                   </div>
                 </div>
                 <div class="row projects-holder">
@@ -194,22 +157,19 @@
                       <div class="project-hover">
                         <div class="inside">
                           <h5>
-                            <a href="#">{{ Project.project_title }}</a>
+                            <a href="#">{{ project.project_title }}</a>
                           </h5>
-                          <p>{{ Project.project_description }}</p>
+                          <p>{{ project.project_description }}</p>
                         </div>
                       </div>
                     </div>
                   </div>
                   <div class="col-md-4 col-sm-6">
                     <div class="project-item">
-                      <img src="{{Project.project_picture.url}}" alt="">
+                      <img src="{{project.project_picture.url}}" alt="">
                       <div class="project-hover">
                         <div class="inside">
-                          <h5>
-                            <a href="#">{{ Project.project_title }}</a>
-                          </h5>
-                          <p>{{ Project.project_description }}</p>
+                          <p>{{ project.project_description }}</p>
                         </div>
                       </div>
                     </div>

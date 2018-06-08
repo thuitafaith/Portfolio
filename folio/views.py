@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from .models import Project,Skill,Personal_Information
 from .email import send_welcome_email
 from django.contrib import messages
@@ -16,8 +16,8 @@ def home(request):
 def contact(request):
     if request.method == 'POST' and 'message' in request.POST:
         email_content = request.POST['message']
-        name = request.POST['name']
-        email = request.POST['email']
+        name = request.POST['Your Name']
+        email = request.POST['Your Email']
         subject = "NAME: "+name + " " + "EMAIL: " + email
         send_welcome_email(subject, email_content)
         messages.success(request, 'Email successfully sent')

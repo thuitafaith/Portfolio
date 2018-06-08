@@ -58,6 +58,10 @@ body {
   line-height: 1;
 }
 
+.sk>i {
+  font-size: 580%;
+}
+
 ol, ul {
   list-style: none;
 }
@@ -446,6 +450,12 @@ h3.profile-title {
   z-index: 4;
 }
 
+.welcome-text p {
+  margin-top: 2%;
+  color: white;
+  font-size: 20px;
+}
+
 .welcome-text h2 {
   font-size: 42px;
   font-family: 'robotobold';
@@ -494,6 +504,7 @@ h3.profile-title {
 .project-item img {
   width: 100%;
   display: block;
+  float: right;
 }
 
 .project-item:hover .project-hover {
